@@ -8,6 +8,10 @@ class TurmaDetail(generics.RetrieveAPIView):
     queryset = Turma.objects.all()
     serializer_class = TurmaSerializer
 
+class TurmaList(generics.ListAPIView):
+    queryset = Turma.objects.all()
+    serializer_class = TurmaSerializer
+
 class AlunoDetail(generics.RetrieveAPIView):
     queryset = Aluno.objects.all()
     serializer_class = AlunoSerializer
