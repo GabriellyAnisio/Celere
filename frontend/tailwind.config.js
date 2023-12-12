@@ -18,6 +18,8 @@ module.exports = {
         'light-blue-active': '#70c6ee',
         'light-green': '#bcf0dd',
         'green-active': '#71D8B2',
+        'black': '#020318',
+        'white': '#f9f9ff',
         'box': '#f1f3fb'
       }
     },
