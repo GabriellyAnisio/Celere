@@ -15,7 +15,7 @@ export default function Navbar() {
                 </div>
             </Link>
             <Link href={'/'}>
-                <div className='p-2 px-4 flex mr-16  bg-box rounded-full'>
+                <div className='p-2 px-4 flex mr-16  bg-box rounded-full hover:bg-black hover:text-white'>
                     <Image
                         src={'/icons/gestor.svg'} 
                         width={35}
