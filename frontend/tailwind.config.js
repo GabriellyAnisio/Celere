@@ -14,6 +14,7 @@ module.exports = {
       },
       colors: {
         'indigo': '#c6c7fd',
+        'indigo-active': '#a0a1f8',
         'light-blue': '#a5e2fe',
         'light-blue-active': '#70c6ee',
         'light-green': '#bcf0dd',
