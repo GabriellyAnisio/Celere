@@ -15,3 +15,7 @@ class TurmaList(generics.ListAPIView):
 class AlunoDetail(generics.RetrieveAPIView):
     queryset = Aluno.objects.all()
     serializer_class = AlunoSerializer
+
+class AlunoList(generics.ListAPIView):
+    queryset = Aluno.objects.all()
+    serializer_class = AlunoSerializer
