@@ -68,7 +68,7 @@ export default function classesList() {
 
             {/* LISTA DE TURMAS */}
             <div className="w-[888px] h-[328px] bg-box" style={{padding: 20, borderRadius: 30, flexDirection: 'column', justifyContent: 'center', gap: 10 }}>
-                <div style={{ width: 836, flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', gap: 16, display: 'flex' }}>
+                <div className="scrollable-content" style={{ overflow: 'scroll',width: 836, height: 288, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 16, display: 'flex' }}>
                     <div style={{alignItems: 'center', gap: 52, display: 'inline-flex' }}>
                         <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
                             <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
