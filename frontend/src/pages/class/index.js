@@ -8,7 +8,7 @@ const poppins = Poppins({ subsets: ['latin'], weight: ['400'] })
 export default function classesList() {
 
     return (
-        <div className={`flex flex-col mt-4 ml-8 ${baloo.className}`} style={{ justifyContent: 'flex-start', gap: 12, display: 'inline-flex' }}>
+        <div className={`flex flex-col ml-8 ${baloo.className}`} style={{ justifyContent: 'flex-start', display: 'inline-flex' }}>
 
             {/* TÍTULO */}
             <div className="flex flex-row">
@@ -135,14 +135,14 @@ export default function classesList() {
                         Discentes
                     </div>
 
-                    <div className="flex-row">
-                        <button className={`mt-3 w-[184px] h-[60px] bg-light-blue hover:bg-light-blue-active`} style={{ fontSize: 20, fontWeight: '500', width: '184', height: '55', borderRadius: 20, justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
+                    <div className="flex flex-row">
+                        <button className={`mt-3 w-[184px] h-[60px] bg-light-blue hover:bg-light-blue-active`} style={{ fontSize: 20, fontWeight: '500', width: '184', height: '55', borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap:6, display: 'inline-flex' }}>
                             <Image src={"/icons/plus.svg"} width={24} height={24} />
                             Discente
                         </button>
 
                         {/* ALFABETO */}
-                        <div className={`ml-12 text-black ${poppins.className}`} style={{ flexDirection: 'column', gap: 5, display: 'inline-flex', fontSize: 16, fontWeight: '400' }}>
+                        <div className={`ml-12 mt-3 text-black ${poppins.className}`} style={{ flexDirection: 'column', gap: 5, display: 'inline-flex', fontSize: 16, fontWeight: '400' }}>
                             <div style={{ gap: 4, display: 'inline-flex' }}>
                                 <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
                                     A</button>
@@ -203,7 +203,7 @@ export default function classesList() {
 
                     </div>
 
-                    <div className={`w-[644px] h-[392px] bg-box ${poppins.className} text-black`} style={{ padding: 12, background: '#F1F3FB', borderRadius: 30, flexDirection: 'column', justifyContent: 'center', gap: 10 }}>
+                    <div className={` mt-3 w-[644px] h-[392px] bg-box ${poppins.className} text-black`} style={{ padding: 12, background: '#F1F3FB', borderRadius: 30, flexDirection: 'column', justifyContent: 'center', gap: 10 }}>
                         <div className="scrollable-content ml-1" style={{ overflowY: 'scroll', height: 368, justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'inline-flex' }}>
                             <div style={{ flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 12, display: 'inline-flex' }}>
                                 <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
