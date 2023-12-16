@@ -4,84 +4,91 @@ import Link from 'next/link'
 
 export default function Sidebar() {
   return (
-    <div className='w-56 bg-white flex justify-end'>
-       <div className='w-20 h-[35rem] bg-indigo mt-4 p-4 flex flex-col items-center gap-6 rounded-3xl'>
+    <div className='w-[12rem] bg-white flex justify-end'>
+       <div className='w-[4rem] h-[35rem] bg-indigo mt-12 flex flex-col items-center justify-between py-10 rounded-3xl'>
         <Link href={'/'}>
-        <div className='p-2'>
-            <Image
-            src={'/icons/home.svg'} 
-            width={30}
-            height={30}
-            />
-            <div className='text-xs mt-1 text-center'>
-            Início
+            <div className='flex flex-col items-center hover:opacity-60'>
+                <Image
+                    src={'/icons/home.svg'} 
+                    width={30}
+                    height={30}
+                />
+                <div className='text-xs mt-1 text-center'>
+                    Início
+                </div>
             </div>
-        </div>
         </Link>
 
         <Link href={'/'}>
-        <div className='p-2 flex justify-center'>
-            <Image
-            src={'/icons/calendar.svg'} 
-            width={30}
-            height={30}
-            />
-        </div>
-        <div className='text-xs mt-1 text-center'>
-            Datas
-        </div>
+            <div className='flex flex-col items-center hover:opacity-60'>
+                <Image
+                    src={'/icons/calendar.svg'} 
+                    width={30}
+                    height={30}
+                />
+                <div className='text-xs mt-1 text-center'>
+                    Datas
+                </div>
+            </div>
+            
         </Link>
 
         <Link href={'/'}>
-        <div className='p-2 flex justify-center'>
-            <Image
-            src={'/icons/tag.svg'} 
-            width={30}
-            height={30}
-            />
-        </div>
-        <div className='text-xs mt-1 text-center'>
-            Avisos
-        </div>
+            <div className='flex flex-col items-center hover:opacity-60'>
+                <Image
+                src={'/icons/tag.svg'} 
+                width={30}
+                height={30}
+                />
+                <div className='text-xs mt-1 text-center'>
+                    Avisos
+                </div>
+            </div>  
         </Link>
 
         <Link href={'/'}>
-        <div className='p-2 flex justify-center'>
-            <Image
-            src={'/icons/square.svg'} 
-            width={30}
-            height={30}
-            />
-        </div>
-        <div className='text-xs mt-1 text-center'>
-            Turmas
-        </div>
+            <div className='flex flex-col items-center hover:opacity-60'>
+                <Image
+                src={'/icons/square.svg'} 
+                width={30}
+                height={30}
+                />
+
+                <div className='text-xs mt-1 text-center'>
+                    Turmas
+                </div>
+            </div>
+            
         </Link>
 
         <Link href={'/'}>
-        <div className='p-2 flex justify-center'>
-            <Image
-            src={'/icons/users.svg'} 
-            width={30}
-            height={30}
-            />
-        </div>
-        <div className='text-xs mt-1 text-center'>
-            Equipe
-        </div>
+            <div className='flex flex-col items-center hover:opacity-60'>
+                <Image
+                src={'/icons/users.svg'} 
+                width={30}
+                height={30}
+                />
+                
+                <div className='text-xs mt-1 text-center'>
+                    Equipe
+                </div>
+            </div>
+
         </Link>
 
         <Link href={'/'}>
-        <div className='p-2 flex justify-center'>
-            <Image
-            src={'/icons/file.svg'} 
-            width={30}
-            height={30}
-            />
-        </div>
-        <div className='text-xs mt-1'>
-            Arquivos
-        </div>
+            <div className='flex flex-col items-center hover:opacity-60'>
+                <Image
+                src={'/icons/file.svg'} 
+                width={30}
+                height={30}
+                />
+
+                <div className='text-xs mt-1'>
+                    Arquivos
+                </div>
+            </div>
+            
         </Link>
     </div>
   </div>
