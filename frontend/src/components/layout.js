@@ -2,7 +2,7 @@ import Navbar from './navbar'
 import Sidebar from './sidebar'
 import { Poppins } from 'next/font/google'
 
-const inter = Poppins({ subsets: ['latin'], weight: ['500'] })
+const inter = Poppins({ subsets: ['latin'], weight: ['400'] })
 
 export default function Layout({ children }) {
   return (
