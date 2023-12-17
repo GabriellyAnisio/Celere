@@ -9,22 +9,6 @@ from django.http import HttpResponse
 def index(request):
     return HttpResponse("Hello, world. You're at the index.")
 
-class TurmaDetail(generics.RetrieveAPIView):
-    queryset = Turma.objects.all()
-    serializer_class = TurmaSerializer
-
-class TurmaList(generics.ListAPIView):
-    queryset = Turma.objects.all()
-    serializer_class = TurmaSerializer
-
-class AlunoDetail(generics.RetrieveAPIView):
-    queryset = Aluno.objects.all()
-    serializer_class = AlunoSerializer
-
-class AlunoList(generics.ListAPIView):
-    queryset = Aluno.objects.all()
-    serializer_class = AlunoSerializer
-
 #Views de Profissional
 class ProfissionalCreate(generics.CreateAPIView):
     queryset = Profissional.objects.all()
@@ -95,3 +79,156 @@ class NotaList(generics.ListAPIView):
 class NotaDetail(generics.RetrieveAPIView):
     queryset = Nota.objects.all()
     serializer_class = NotaSerializer
+
+# Views de Disc_Turma
+class Disc_TurmaCreate(generics.CreateAPIView):
+    queryset = Disc_Turma.objects.all()
+    serializer_class = Disc_TurmaSerializer
+
+class Disc_TurmaDeleteUpdate(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Disc_Turma.objects.all()
+    serializer_class = Disc_TurmaSerializer
+
+class Disc_TurmaList(generics.ListAPIView):
+    queryset = Disc_Turma.objects.all()
+    serializer_class = Disc_TurmaSerializer
+
+class Disc_TurmaDetail(generics.RetrieveAPIView):
+    queryset = Disc_Turma.objects.all()
+    serializer_class = Disc_TurmaSerializer
+
+# Views de Turma
+class TurmaCreate(generics.CreateAPIView):
+    queryset = Turma.objects.all()
+    serializer_class = TurmaSerializer
+
+class TurmaDeleteUpdate(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Turma.objects.all()
+    serializer_class = TurmaSerializer
+
+class TurmaList(generics.ListAPIView):
+    queryset = Turma.objects.all()
+    serializer_class = TurmaSerializer
+
+class TurmaDetail(generics.RetrieveAPIView):
+    queryset = Turma.objects.all()
+    serializer_class = TurmaSerializer
+
+# Views de SerieEscolar
+class SerieEscolarCreate(generics.CreateAPIView):
+    queryset = SerieEscolar.objects.all()
+    serializer_class = SerieEscolarSerializer
+
+class SerieEscolarDeleteUpdate(generics.RetrieveUpdateDestroyAPIView):
+    queryset = SerieEscolar.objects.all()
+    serializer_class = SerieEscolarSerializer
+
+class SerieEscolarList(generics.ListAPIView):
+    queryset = SerieEscolar.objects.all()
+    serializer_class = SerieEscolarSerializer
+
+class SerieEscolarDetail(generics.RetrieveAPIView):
+    queryset = SerieEscolar.objects.all()
+    serializer_class = SerieEscolarSerializer
+
+# Views de NivelEnsino
+class NivelEnsinoCreate(generics.CreateAPIView):
+    queryset = NivelEnsino.objects.all()
+    serializer_class = NivelEnsinoSerializer
+
+class NivelEnsinoDeleteUpdate(generics.RetrieveUpdateDestroyAPIView):
+    queryset = NivelEnsino.objects.all()
+    serializer_class = NivelEnsinoSerializer
+
+class NivelEnsinoList(generics.ListAPIView):
+    queryset = NivelEnsino.objects.all()
+    serializer_class = NivelEnsinoSerializer
+
+class NivelEnsinoDetail(generics.RetrieveAPIView):
+    queryset = NivelEnsino.objects.all()
+    serializer_class = NivelEnsinoSerializer
+
+# Views de Frequencia
+class FrequenciaCreate(generics.CreateAPIView):
+    queryset = Frequencia.objects.all()
+    serializer_class = FrequenciaSerializer
+
+class FrequenciaDeleteUpdate(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Frequencia.objects.all()
+    serializer_class = FrequenciaSerializer
+
+class FrequenciaList(generics.ListAPIView):
+    queryset = Frequencia.objects.all()
+    serializer_class = FrequenciaSerializer
+
+class FrequenciaDetail(generics.RetrieveAPIView):
+    queryset = Frequencia.objects.all()
+    serializer_class = FrequenciaSerializer
+
+# Views de Aluno
+class AlunoCreate(generics.CreateAPIView):
+    queryset = Aluno.objects.all()
+    serializer_class = AlunoSerializer
+
+class AlunoDeleteUpdate(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Aluno.objects.all()
+    serializer_class = AlunoSerializer
+
+class AlunoList(generics.ListAPIView):
+    queryset = Aluno.objects.all()
+    serializer_class = AlunoSerializer
+
+class AlunoDetail(generics.RetrieveAPIView):
+    queryset = Aluno.objects.all()
+    serializer_class = AlunoSerializer
+
+# Views de Bilhete
+class BilheteCreate(generics.CreateAPIView):
+    queryset = Bilhete.objects.all()
+    serializer_class = BilheteSerializer
+
+class BilheteDeleteUpdate(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Bilhete.objects.all()
+    serializer_class = BilheteSerializer
+
+class BilheteList(generics.ListAPIView):
+    queryset = Bilhete.objects.all()
+    serializer_class = BilheteSerializer
+
+class BilheteDetail(generics.RetrieveAPIView):
+    queryset = Bilhete.objects.all()
+    serializer_class = BilheteSerializer
+
+# Views de Responsavel
+class ResponsavelCreate(generics.CreateAPIView):
+    queryset = Responsavel.objects.all()
+    serializer_class = ResponsavelSerializer
+
+class ResponsavelDeleteUpdate(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Responsavel.objects.all()
+    serializer_class = ResponsavelSerializer
+
+class ResponsavelList(generics.ListAPIView):
+    queryset = Responsavel.objects.all()
+    serializer_class = ResponsavelSerializer
+
+class ResponsavelDetail(generics.RetrieveAPIView):
+    queryset = Responsavel.objects.all()
+    serializer_class = ResponsavelSerializer
+
+# Views de ChecklistItem
+class ChecklistItemCreate(generics.CreateAPIView):
+    queryset = ChecklistItem.objects.all()
+    serializer_class = ChecklistItemSerializer
+
+class ChecklistItemDeleteUpdate(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ChecklistItem.objects.all()
+    serializer_class = ChecklistItemSerializer
+
+class ChecklistItemlList(generics.ListAPIView):
+    queryset = ChecklistItem.objects.all()
+    serializer_class = ChecklistItemSerializer
+
+class ChecklistItemDetail(generics.RetrieveAPIView):
+    queryset = ChecklistItem.objects.all()
+    serializer_class = ChecklistItemSerializer
