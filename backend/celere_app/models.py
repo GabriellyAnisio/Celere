@@ -223,8 +223,7 @@ class Comunicado(models.Model):
 
     author = models.ForeignKey(Profissional, on_delete=models.CASCADE, related_name='autor_comunicado', 
                                null=False, blank=False)
-    reader = models.ForeignKey(Profissional, on_delete=models.CASCADE, related_name='leitor_comunicado', 
-                               null=False, blank=False)
+    reader = models.ManyToManyField(Profissional, related_name='leitores_comunicado', null=False, blank=False)
     title = models.CharField('Título', max_length=150)
     text = models.CharField('Texto', max_length=500)
     creation_date = models.DateTimeField('Data de criação', default=timezone.now)
