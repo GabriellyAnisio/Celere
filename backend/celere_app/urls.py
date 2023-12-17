@@ -83,4 +83,10 @@ urlpatterns = [
     path('checklistitem/', ChecklistItemlList.as_view(), name='checklistitem-list'),
     path('checklistitem/deleteupdate', ChecklistItemDeleteUpdate.as_view(), name='checklistitem-delete-update'),
     path('checklistitem/create', ChecklistItemCreate.as_view(), name='checklistitem-create'),
+
+    #URLs de Comunicado
+    path('comunicado/<int:pk>', ComunicadoDetail.as_view(), name='comunicado-detail'),
+    path('comunicado/', ComunicadoList.as_view(), name='comunicado-list'),
+    path('comunicado/deleteupdate', ComunicadoDeleteUpdate.as_view(), name='comunicado-delete-update'),
+    path('comunicado/create', ComunicadoCreate.as_view(), name='comunicado-create'),
 ]
