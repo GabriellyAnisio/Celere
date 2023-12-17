@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Link from 'next/link'
 import ClassList from '@/components/student/classList'
 import StudentCard from '@/components/student/card'
 
@@ -34,9 +34,11 @@ export default function Student() {
           <div className='bg-light-blue w-[11rem] h-[3.75rem] flex items-center justify-center rounded-2xl hover:bg-light-blue-active hover:cursor-pointer'>
             + Bilhete
           </div>
-          <div className='bg-light-green w-[11rem] h-[3.75rem] flex items-center justify-center rounded-2xl hover:bg-green-300 hover:cursor-pointer'>
-            Ver tudo
-          </div>
+          <Link href={"/student/notices"}>
+            <div className='bg-light-green w-[11rem] h-[3.75rem] flex items-center justify-center rounded-2xl hover:bg-green-300 hover:cursor-pointer'>
+              Ver tudo
+            </div>
+          </Link>
         </div>
         
         <div className='bg-box mt-10 p-4 rounded-2xl'>
