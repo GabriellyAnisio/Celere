@@ -4,6 +4,7 @@ from rest_framework import generics
 from .models import *
 from .serializers import *
 from django.http import HttpResponse
+from rest_framework.response import Response
 
 #Index
 def index(request):
@@ -232,3 +233,32 @@ class ChecklistItemlList(generics.ListAPIView):
 class ChecklistItemDetail(generics.RetrieveAPIView):
     queryset = ChecklistItem.objects.all()
     serializer_class = ChecklistItemSerializer
+
+
+#Views de Comunicado
+class ComunicadoCreate(generics.CreateAPIView):
+    queryset = Comunicado.objects.all()
+    serializer_class = ComunicadoSerializer
+
+class ComunicadoDeleteUpdate(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Comunicado.objects.all()
+    serializer_class = ComunicadoSerializer
+
+class ComunicadoList(generics.ListAPIView):
+    queryset = Comunicado.objects.all()
+    serializer_class = ComunicadoSerializer
+
+    def list(self, request):
+        req = self.request
+        tag = req.query_params.get('tag', None)
+        queryset = Comunicado.objects.all()
+
+        if tag:
+            queryset = Comunicado.objects.filter(tags = tag)
+
+        serializer = ComunicadoSerializer(queryset, many = True)
+        return Response(serializer.data)
+
+class ComunicadoDetail(generics.RetrieveAPIView):
+    queryset = Comunicado.objects.all()
+    serializer_class = ComunicadoSerializer
