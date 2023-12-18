@@ -70,3 +70,18 @@ class ComunicadoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comunicado
         fields = '__all__'
+
+class DisciplinaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Disciplina
+        fields = '__all__'
+
+class PlanejamentoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Planejamento
+        fields = '__all__'
+
+class LecionaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Leciona
+        fields = '__all__'

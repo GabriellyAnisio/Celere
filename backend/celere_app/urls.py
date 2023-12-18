@@ -89,4 +89,22 @@ urlpatterns = [
     path('comunicado/', ComunicadoList.as_view(), name='comunicado-list'),
     path('comunicado/deleteupdate', ComunicadoDeleteUpdate.as_view(), name='comunicado-delete-update'),
     path('comunicado/create', ComunicadoCreate.as_view(), name='comunicado-create'),
+
+    #URLs de Disciplina
+    path('disciplina/<int:pk>', DisciplinaDetail.as_view(), name='disciplina-detail'),
+    path('disciplina/', DisciplinaList.as_view(), name='disciplina-list'),
+    path('disciplina/deleteupdate', DisciplinaDeleteUpdate.as_view(), name='disciplina-delete-update'),
+    path('disciplina/create', DisciplinaCreate.as_view(), name='disciplina-create'),
+
+    #URLs de Planejamento
+    path('planejamento/<int:pk>', PlanejamentoDetail.as_view(), name='planejamento-detail'),
+    path('planejamento/', PlanejamentoList.as_view(), name='planejamento-list'),
+    path('planejamento/deleteupdate', PlanejamentoDeleteUpdate.as_view(), name='planejamento-delete-update'),
+    path('planejamento/create', PlanejamentoCreate.as_view(), name='planejamento-create'),
+
+    #URLs de Leciona
+    path('leciona/<int:pk>', LecionaDetail.as_view(), name='leciona-detail'),
+    path('leciona/', LecionaList.as_view(), name='leciona-list'),
+    path('leciona/deleteupdate', LecionaDeleteUpdate.as_view(), name='leciona-delete-update'),
+    path('leciona/create', LecionaCreate.as_view(), name='leciona-create'),
 ]
