@@ -262,3 +262,54 @@ class ComunicadoList(generics.ListAPIView):
 class ComunicadoDetail(generics.RetrieveAPIView):
     queryset = Comunicado.objects.all()
     serializer_class = ComunicadoSerializer
+
+#Views da Disciplina
+class DisciplinaCreate(generics.CreateAPIView):
+    queryset = Disciplina.objects.all()
+    serializer_class = DisciplinaSerializer
+
+class DisciplinaDeleteUpdate(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Disciplina.objects.all()
+    serializer_class = DisciplinaSerializer
+
+class DisciplinaList(generics.ListAPIView):
+    queryset = Disciplina.objects.all()
+    serializer_class = DisciplinaSerializer
+
+class DisciplinaDetail(generics.RetrieveAPIView):
+    queryset = Disciplina.objects.all()
+    serializer_class = DisciplinaSerializer
+
+#Views de Planejamento
+class PlanejamentoCreate(generics.CreateAPIView):
+    queryset = Planejamento.objects.all()
+    serializer_class = PlanejamentoSerializer
+    
+class PlanejamentoDeleteUpdate(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Planejamento.objects.all()
+    serializer_class = PlanejamentoSerializer
+
+class PlanejamentoList(generics.ListAPIView):
+    queryset = Planejamento.objects.all()
+    serializer_class = PlanejamentoSerializer
+    
+class PlanejamentoDetail(generics.RetrieveAPIView):
+    queryset = Planejamento.objects.all()
+    serializer_class = PlanejamentoSerializer
+
+#Views de Leciona
+class LecionaCreate(generics.CreateAPIView):
+    queryset = Leciona.objects.all()
+    serializer_class = LecionaSerializer
+    
+class LecionaDeleteUpdate(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Leciona.objects.all()
+    serializer_class = LecionaSerializer
+
+class LecionaList(generics.ListAPIView):
+    queryset = Leciona.objects.all()
+    serializer_class = LecionaSerializer
+    
+class LecionaDetail(generics.RetrieveAPIView):
+    queryset = Leciona.objects.all()
+    serializer_class = LecionaSerializer
