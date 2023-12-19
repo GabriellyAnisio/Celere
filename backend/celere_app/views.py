@@ -5,6 +5,7 @@ from .models import *
 from .serializers import *
 from django.http import HttpResponse
 from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
 #Index
 def index(request):
@@ -178,6 +179,17 @@ class AlunoDeleteUpdate(generics.RetrieveUpdateDestroyAPIView):
 class AlunoList(generics.ListAPIView):
     queryset = Aluno.objects.all()
     serializer_class = AlunoSerializer
+
+    def list(self, request):
+        req = self.request
+        turma = req.query_params.get('turma', None)
+        queryset = Aluno.objects.all()
+
+        if turma:
+            queryset = Aluno.objects.filter(id_turma = turma)
+
+        serializer = AlunoSerializer(queryset, many = True)
+        return Response(serializer.data)
 
 class AlunoDetail(generics.RetrieveAPIView):
     queryset = Aluno.objects.all()
