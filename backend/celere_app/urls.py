@@ -6,11 +6,6 @@ urlpatterns = [
     #URL Index
     path('', views.index, name='index'),
 
-    path('turma/<int:pk>/', TurmaDetail.as_view(), name='turma-detail'),
-    path('turma/', TurmaList.as_view(), name='turma-list'),
-    path('aluno/<int:pk>/', AlunoDetail.as_view(), name='aluno-detail'),
-    path('aluno/', AlunoList.as_view(), name='aluno-list'),
-
     #URLs de Profissional
     path('profissional/<int:pk>', ProfissionalDetail.as_view(), name='profissional-detail'),
     path('profissional/', ProfissionalList.as_view(), name='profissional-list'),
@@ -33,9 +28,12 @@ urlpatterns = [
     path('nota/<int:pk>', NotaDetail.as_view(), name='nota-detail'),
     path('nota/', NotaList.as_view(), name='nota-list'),
     path('nota/deleteupdate', NotaDeleteUpdate.as_view(), name='nota-delete-update'),
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     path('gestor/create', NotaCreate.as_view(), name='nota-create'),
 =======
+=======
+>>>>>>> 636134651b06628f98013f09c9871bbcf4097eb5
     path('nota/create', NotaCreate.as_view(), name='nota-create'),
 
     #URLs de Disc_Turma
@@ -86,10 +84,41 @@ urlpatterns = [
     path('responsavel/deleteupdate', ResponsavelDeleteUpdate.as_view(), name='responsavel-delete-update'),
     path('responsavel/create', ResponsavelCreate.as_view(), name='responsavel-create'),
 
+<<<<<<< HEAD
     #URLs de ChecklistItem
+=======
+     #URLs de ChecklistItem
+>>>>>>> 636134651b06628f98013f09c9871bbcf4097eb5
     path('checklistitem/<int:pk>', ChecklistItemDetail.as_view(), name='checklistitem-detail'),
     path('checklistitem/', ChecklistItemlList.as_view(), name='checklistitem-list'),
     path('checklistitem/deleteupdate', ChecklistItemDeleteUpdate.as_view(), name='checklistitem-delete-update'),
     path('checklistitem/create', ChecklistItemCreate.as_view(), name='checklistitem-create'),
+<<<<<<< HEAD
 >>>>>>> Stashed changes
+=======
+
+    #URLs de Comunicado
+    path('comunicado/<int:pk>', ComunicadoDetail.as_view(), name='comunicado-detail'),
+    path('comunicado/', ComunicadoList.as_view(), name='comunicado-list'),
+    path('comunicado/deleteupdate', ComunicadoDeleteUpdate.as_view(), name='comunicado-delete-update'),
+    path('comunicado/create', ComunicadoCreate.as_view(), name='comunicado-create'),
+
+    #URLs de Disciplina
+    path('disciplina/<int:pk>', DisciplinaDetail.as_view(), name='disciplina-detail'),
+    path('disciplina/', DisciplinaList.as_view(), name='disciplina-list'),
+    path('disciplina/deleteupdate', DisciplinaDeleteUpdate.as_view(), name='disciplina-delete-update'),
+    path('disciplina/create', DisciplinaCreate.as_view(), name='disciplina-create'),
+
+    #URLs de Planejamento
+    path('planejamento/<int:pk>', PlanejamentoDetail.as_view(), name='planejamento-detail'),
+    path('planejamento/', PlanejamentoList.as_view(), name='planejamento-list'),
+    path('planejamento/deleteupdate', PlanejamentoDeleteUpdate.as_view(), name='planejamento-delete-update'),
+    path('planejamento/create', PlanejamentoCreate.as_view(), name='planejamento-create'),
+
+    #URLs de Leciona
+    path('leciona/<int:pk>', LecionaDetail.as_view(), name='leciona-detail'),
+    path('leciona/', LecionaList.as_view(), name='leciona-list'),
+    path('leciona/deleteupdate', LecionaDeleteUpdate.as_view(), name='leciona-delete-update'),
+    path('leciona/create', LecionaCreate.as_view(), name='leciona-create'),
+>>>>>>> 636134651b06628f98013f09c9871bbcf4097eb5
 ]

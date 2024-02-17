@@ -30,3 +30,58 @@ class NotaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Nota
         fields = '__all__'
+
+class Disc_TurmaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Disc_Turma
+        fields = '__all__'
+
+class SerieEscolarSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SerieEscolar
+        fields = '__all__'
+
+class NivelEnsinoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NivelEnsino
+        fields = '__all__'
+
+class FrequenciaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Frequencia
+        fields = '__all__'
+
+class BilheteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Bilhete
+        fields = '__all__'
+
+class ResponsavelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Responsavel
+        fields = '__all__'
+
+class ChecklistItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ChecklistItem
+        fields = '__all__'
+
+class ComunicadoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comunicado
+        fields = '__all__'
+
+class DisciplinaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Disciplina
+        fields = '__all__'
+
+class PlanejamentoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Planejamento
+        fields = '__all__'
+
+class LecionaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Leciona
+        fields = '__all__'
