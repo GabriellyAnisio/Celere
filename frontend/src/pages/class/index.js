@@ -1,309 +1,147 @@
 import Image from "next/image";
-import { Baloo_2, Poppins } from 'next/font/google'
+import { Baloo_2 } from 'next/font/google'
 
-const baloo = Baloo_2({ subsets: ['latin'], weight: ['500'] })
-const balooNegrito = Baloo_2({ subsets: ['latin'], weight: ['800'] })
-const poppins = Poppins({ subsets: ['latin'], weight: ['400'] })
+const baloo = Baloo_2({subsets:['latin'], weight: ['600']})
+const balooNegrito = Baloo_2({subsets:['latin'], weight: ['800']})
 
 export default function classesList() {
 
     return (
-        <div className={`flex flex-col ml-8 ${baloo.className}`} style={{ justifyContent: 'flex-start', display: 'inline-flex' }}>
+        <div className={`flex flex-col mt-4 ml-8 ${baloo.className}`} style={{ justifyContent: 'flex-start', gap: 12, display: 'inline-flex' }}>
 
-            {/* TÍTULO */}
             <div className="flex flex-row">
                 <div className="mt-2">
                     <Image src={"/icons/classes.svg"} width={44} height={44} />
                 </div>
-                <div className={`ml-4 ${balooNegrito.className}`} style={{ height: 23, color: '#020318', fontSize: 40, fontWeight: '700' }}>
-                    9° ano C
+                <div className={`ml-4 ${baloo.className}`} style={{ width: 138, height: 23, color: '#020318', fontSize: 40, fontWeight: '700' }}>
+                    Turmas
                 </div>
             </div>
 
-            {/* ÁREA DOS DOCENTES */}
-            <div className="flex flex-row">
-                <div className="flex flex-col">
-                    <div className={`mt-4 ${balooNegrito.className}`} style={{ color: 'black', fontSize: 24 }}>
-                        Docentes
-                    </div>
-
-                    <button className={`mt-3 w-[184px] h-[60px] bg-light-blue hover:bg-light-blue-active`} style={{ fontSize: 20, fontWeight: '500', width: '184', height: '60', borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 6, display: 'inline-flex' }}>
-                        <Image src={"/icons/plus.svg"} width={24} height={24} />
-                        Docente
-                    </button>
-
-                    {/* SCROLL DE DOCENTES */}
-                    <div className="mt-3 scrollable-content" style={{ overflow: 'scroll', width: 228, height: 363, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 6, display: 'flex' }}>
-                        <button className='w-[184px] h-[64px] px-1 flex mt-3 bg-box rounded-full hover:bg-indigo'>
-                            <Image
-                                className="mt-1"
-                                src={'/icons/gestor.svg'}
-                                width={56}
-                                height={56}
-                            />
-                            <div className="flex flex-col justify-right ml-3" style={{ alignItems: 'flex-right' }}>
-                                <div className={` ${balooNegrito.className}`} style={{ fontSize: 16 }}>Amanda</div>
-                                <div style={{ fontSize: 16 }}>Professor</div>
-                                <div style={{ height: 15, borderRadius: 30, border: '1px #020318 solid', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    <div style={{ textAlign: 'center', fontSize: 12, fontWeight: '500' }}>História</div>
-                                </div>
-                            </div>
-                        </button>
-                        <button className='w-[184px] h-[64px] px-1 flex mt-3 bg-box rounded-full hover:bg-indigo'>
-                            <Image
-                                className="mt-1"
-                                src={'/icons/perfil.svg'}
-                                width={56}
-                                height={56}
-                            />
-                            <div className="flex flex-col justify-right ml-3" style={{ alignItems: 'flex-right' }}>
-                                <div className={` ${balooNegrito.className}`} style={{ fontSize: 16 }}>Amanda</div>
-                                <div style={{ fontSize: 16 }}>Professor</div>
-                                <div style={{ height: 15, borderRadius: 30, border: '1px #020318 solid', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    <div style={{ textAlign: 'center', fontSize: 12, fontWeight: '500' }}>História</div>
-                                </div>
-                            </div>
-                        </button>
-                        <button className='w-[184px] h-[64px] px-1 flex mt-3 bg-box rounded-full hover:bg-indigo'>
-                            <Image
-                                className="mt-1"
-                                src={'/icons/gestor.svg'}
-                                width={56}
-                                height={56}
-                            />
-                            <div className="flex flex-col justify-right ml-3" style={{ alignItems: 'flex-right' }}>
-                                <div className={` ${balooNegrito.className}`} style={{ fontSize: 16 }}>Amanda</div>
-                                <div style={{ fontSize: 16 }}>Professor</div>
-                                <div style={{ height: 15, borderRadius: 30, border: '1px #020318 solid', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    <div style={{ textAlign: 'center', fontSize: 12, fontWeight: '500' }}>História</div>
-                                </div>
-                            </div>
-                        </button>
-                        <button className='w-[184px] h-[64px] px-1 flex mt-3 bg-box rounded-full hover:bg-indigo'>
-                            <Image
-                                className="mt-1"
-                                src={'/icons/gestor.svg'}
-                                width={56}
-                                height={56}
-                            />
-                            <div className="flex flex-col justify-right ml-3" style={{ alignItems: 'flex-right' }}>
-                                <div className={` ${balooNegrito.className}`} style={{ fontSize: 16 }}>Amanda</div>
-                                <div style={{ fontSize: 16 }}>Professor</div>
-                                <div style={{ height: 15, borderRadius: 30, border: '1px #020318 solid', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    <div style={{ textAlign: 'center', fontSize: 12, fontWeight: '500' }}>História</div>
-                                </div>
-                            </div>
-                        </button>
-                        <button className='w-[184px] h-[64px] px-1 flex mt-3 bg-box rounded-full hover:bg-indigo'>
-                            <Image
-                                className="mt-1"
-                                src={'/icons/gestor.svg'}
-                                width={56}
-                                height={56}
-                            />
-                            <div className="flex flex-col justify-right ml-3" style={{ alignItems: 'flex-right' }}>
-                                <div className={` ${balooNegrito.className}`} style={{ fontSize: 16 }}>Amanda</div>
-                                <div style={{ fontSize: 16 }}>Professor</div>
-                                <div style={{ height: 15, borderRadius: 30, border: '1px #020318 solid', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    <div style={{ textAlign: 'center', fontSize: 12, fontWeight: '500' }}>História</div>
-                                </div>
-                            </div>
-                        </button>
-                        <button className='w-[184px] h-[64px] px-1 flex mt-3 bg-box rounded-full hover:bg-indigo'>
-                            <Image
-                                className="mt-1"
-                                src={'/icons/gestor.svg'}
-                                width={56}
-                                height={56}
-                            />
-                            <div className="flex flex-col justify-right ml-3" style={{ alignItems: 'flex-right' }}>
-                                <div className={` ${balooNegrito.className}`} style={{ fontSize: 16 }}>Amanda</div>
-                                <div style={{ fontSize: 16 }}>Professor</div>
-                                <div style={{ height: 15, borderRadius: 30, border: '1px #020318 solid', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    <div style={{ textAlign: 'center', fontSize: 12, fontWeight: '500' }}>História</div>
-                                </div>
-                            </div>
-                        </button>
-                    </div>
-
-                </div>
-
-                {/* ÁREA DOS DISCENTES */}
-                <div className="flex flex-col ml-16">
-
-                    <div className={`mt-4 ${balooNegrito.className}`} style={{ color: 'black', fontSize: 24 }}>
-                        Discentes
-                    </div>
-
-                    <div className="flex flex-row">
-                        <button className={`mt-3 w-[184px] h-[60px] bg-light-blue hover:bg-light-blue-active`} style={{ fontSize: 20, fontWeight: '500', width: '184', height: '55', borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap:6, display: 'inline-flex' }}>
-                            <Image src={"/icons/plus.svg"} width={24} height={24} />
-                            Discente
-                        </button>
-
-                        {/* ALFABETO */}
-                        <div className={`ml-12 mt-3 text-black ${poppins.className}`} style={{ flexDirection: 'column', gap: 5, display: 'inline-flex', fontSize: 16, fontWeight: '400' }}>
-                            <div style={{ gap: 4, display: 'inline-flex' }}>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    A</button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    B</button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    C</button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    D</button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    E</button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    F</button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    G</button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    H</button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    I</button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    J</button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    K</button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    L</button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    M</button>
-                            </div>
-                            <div style={{ justifyContent: 'flex-start', alignItems: 'flex-start', gap: 4, display: 'inline-flex' }}>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    N</button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    O</button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    P</button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    Q</button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    R</button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    S </button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    T </button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    U </button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    V </button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    W </button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    X </button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    Y </button>
-                                <button style={{ width: 28, height: 28, background: '#BCF0DD', borderRadius: 100, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
-                                    Z </button>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div className={` mt-3 w-[644px] h-[392px] bg-box ${poppins.className} text-black`} style={{ padding: 12, background: '#F1F3FB', borderRadius: 30, flexDirection: 'column', justifyContent: 'center', gap: 10 }}>
-                        <div className="scrollable-content ml-1" style={{ overflowY: 'scroll', height: 368, justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'inline-flex' }}>
-                            <div style={{ flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 12, display: 'inline-flex' }}>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                            </div>
-                            <div style={{ flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 12, display: 'inline-flex' }}>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+            {/* FILTROS */}
+            <div className="flex flex-row mt-3">
+                <Image src={"/icons/filter.svg"} width={24} height={24} />
+                <div className="ml-3" style={{ width: '100%', height: '100%', color: 'black', fontSize: 24, fontWeight: '300' }}>
+                    Filtro
                 </div>
             </div>
 
+            <div className="flex flex-row" style={{ gap: 77 }}>
+                <div className="flex flex-col" style={{ gap: 12 }}>
+                    <div style={{ width: '100%', height: '100%', justifyContent: 'flex-start', alignItems: 'flex-end', gap: 8, display: 'inline-flex' }}>
+                        <button className="bg-indigo" style={{ fontSize: 16, fontWeight: '400', width: 75, height: 26, padding: 10, borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 10, display: 'flex' }}>
+                            Infantil
+                        </button>
+
+                        <button style={{ fontSize: 16, fontWeight: '400', width: 122, height: 26, padding: 10, background: '#C6C7FD', borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 10, display: 'flex' }}>
+                            Fundamental I
+                        </button>
+
+                        <button style={{ fontSize: 16, fontWeight: '400', height: 26, padding: 10, background: '#C6C7FD', borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 10, display: 'flex' }}>
+                            Fundamental II
+                        </button>
+                    </div>
+
+                    <div style={{ width: '100%', height: '100%', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 10, display: 'flex' }}>
+
+                        <button style={{ textAlign: 'center', fontSize: 16, fontWeight: '400', height: 26, padding: 10, background: '#C6C7FD', borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 10, display: 'inline-flex' }}>
+                            Ensino Médio
+                        </button>
+
+                        <button style={{ textAlign: 'center', fontSize: 16, fontWeight: '400', height: 26, padding: 10, background: '#C6C7FD', borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 10, display: 'flex' }}>
+                            Ensino Médio Técnico
+                        </button>
+
+                        <button style={{ textAlign: 'center', fontSize: 16, fontWeight: '400', width: 49, height: 26, padding: 10, background: '#C6C7FD', borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 10, display: 'flex' }}>
+                            EJA
+                        </button>
+                    </div>
+                </div>
+
+                {/* BOTÃO DE ADICIONAR TURMA */}
+                <button className={`m-4 w-[184px] h-[60px] bg-light-blue hover:bg-light-blue-active`} style={{ fontSize: 20, fontWeight: '500', width: '184', height: '60', borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 6, display: 'inline-flex' }}>
+                    <Image src={"/icons/plus.svg"} width={24} height={24} />
+                    Turma
+                </button>
+
+            </div>
+
+            {/* LISTA DE TURMAS */}
+            <div className="w-[888px] h-[328px] bg-box" style={{padding: 20, borderRadius: 30, flexDirection: 'column', justifyContent: 'center', gap: 10 }}>
+                <div className="scrollable-content" style={{ overflow: 'scroll',width: 836, height: 288, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 16, display: 'flex' }}>
+                    <div style={{alignItems: 'center', gap: 52, display: 'inline-flex' }}>
+                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
+                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
+                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
+                        </button>
+                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
+                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
+                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
+                        </button>
+                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
+                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
+                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
+                        </button>
+                    </div>
+                    <div style={{alignItems: 'center', gap: 52, display: 'inline-flex' }}>
+                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
+                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
+                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
+                        </button>
+                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
+                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
+                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
+                        </button>
+                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
+                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
+                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
+                        </button>
+                    </div>
+                    <div style={{alignItems: 'center', gap: 52, display: 'inline-flex' }}>
+                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
+                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
+                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
+                        </button>
+                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
+                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
+                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
+                        </button>
+                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
+                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
+                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
+                        </button>
+                    </div>
+                    <div style={{alignItems: 'center', gap: 52, display: 'inline-flex' }}>
+                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
+                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
+                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
+                        </button>
+                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
+                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
+                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
+                        </button>
+                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
+                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
+                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
+                        </button>
+                    </div>
+                    <div style={{alignItems: 'center', gap: 52, display: 'inline-flex' }}>
+                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
+                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
+                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
+                        </button>
+                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
+                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
+                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
+                        </button>
+                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
+                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
+                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
+
     )
 }
