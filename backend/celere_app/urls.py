@@ -78,7 +78,7 @@ urlpatterns = [
     path('responsavel/deleteupdate', ResponsavelDeleteUpdate.as_view(), name='responsavel-delete-update'),
     path('responsavel/create', ResponsavelCreate.as_view(), name='responsavel-create'),
 
-     #URLs de ChecklistItem
+    #URLs de ChecklistItem
     path('checklistitem/<int:pk>', ChecklistItemDetail.as_view(), name='checklistitem-detail'),
     path('checklistitem/', ChecklistItemlList.as_view(), name='checklistitem-list'),
     path('checklistitem/deleteupdate', ChecklistItemDeleteUpdate.as_view(), name='checklistitem-delete-update'),

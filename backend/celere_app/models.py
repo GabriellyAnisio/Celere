@@ -39,7 +39,7 @@ class NivelEnsino(models.Model):
     class Meta:
         db_table = 'NivelEnsino'
     def __str__(self):
-        return self.level
+        return self.school_level
     
 class Turma(models.Model):
     #ID
@@ -64,14 +64,30 @@ class Aluno(models.Model):
     def __str__(self):
         return self.name
 
+class Profissional(models.Model):
+    #ID
+    name = models.CharField('Nome', max_length=100)
+    email = models.CharField('E-mail', max_length=150)
+    password = models.CharField('Senha', max_length=255)
+    birth_date = models.DateField('Data de nascimento')
+    tel = models.CharField('Telefone', max_length=20)
+    rg = models.CharField('RG', max_length=20)
+
+    class Meta:
+        db_table = 'Profissional'
+
+    def __str__(self):
+        return self.name
+    
 class Bilhete(models.Model):
     #ID
     title = models.CharField('Título', max_length=150)
-    text = models.CharField('Texto', max_length=500)
+    text = models.TextField('Texto', max_length=500)
     creation_date = models.DateTimeField('Data de criação', default=timezone.now)
     reg_aluno = models.ForeignKey(Aluno, on_delete=models.CASCADE,
                               related_name='bilhetes_aluno', null=False, blank=False)
-
+    reg_prof = models.ForeignKey(Profissional, on_delete=models.CASCADE,
+                              related_name='bilhetes_prof', null=True, blank=False)
     class Meta:
         db_table = 'Bilhete'
     def __str__(self):
@@ -136,7 +152,7 @@ class Nota(models.Model):
 
     def save(self, *args, **kwargs):
         if self.date:
-            self.year = self.data.year  # Extrai o ano da data
+            self.year = self.date.year  # Extrai o ano da data
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -162,21 +178,6 @@ class Frequencia(models.Model):
 
     def __str__(self):
         return self.frequency
-
-class Profissional(models.Model):
-    #ID
-    name = models.CharField('Nome', max_length=100)
-    email = models.CharField('E-mail', max_length=150)
-    password = models.CharField('Senha', max_length=255)
-    birth_date = models.DateField('Data de nascimento')
-    tel = models.CharField('Telefone', max_length=20)
-    rg = models.CharField('RG', max_length=20)
-
-    class Meta:
-        db_table = 'Profissional'
-
-    def __str__(self):
-        return self.name
 
 
 class Professor(models.Model):
@@ -225,7 +226,7 @@ class Comunicado(models.Model):
                                null=False, blank=False)
     reader = models.ManyToManyField(Profissional, related_name='leitores_comunicado', null=False, blank=False)
     title = models.CharField('Título', max_length=150)
-    text = models.CharField('Texto', max_length=500)
+    text = models.TextField('Texto', max_length=500)
     creation_date = models.DateTimeField('Data de criação', default=timezone.now)
     end_date = models.DateTimeField('Data de término')
     tags = models.CharField('Tags', choices=TAGS, max_length=20)
@@ -237,6 +238,12 @@ class Comunicado(models.Model):
 
 class ChecklistItem(models.Model):
     item = models.CharField(max_length=100)
+
+    class Meta:
+        db_table = 'ChecklistItem'
+    def __str__(self):
+        return self.item
+    
 class Planejamento(models.Model):
 
     TAGS = [
