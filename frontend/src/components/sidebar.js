@@ -46,7 +46,7 @@ export default function Sidebar() {
             </div>  
         </Link>
 
-        <Link href={'/'}>
+        <Link href={'/class'}>
             <div className='flex flex-col items-center hover:opacity-60'>
                 <Image
                 src={'/icons/square.svg'} 
@@ -61,7 +61,7 @@ export default function Sidebar() {
             
         </Link>
 
-        <Link href={'/'}>
+        <Link href={'/team'}>
             <div className='flex flex-col items-center hover:opacity-60'>
                 <Image
                 src={'/icons/users.svg'} 
