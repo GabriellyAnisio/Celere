@@ -107,4 +107,7 @@ urlpatterns = [
     path('leciona/', LecionaList.as_view(), name='leciona-list'),
     path('leciona/deleteupdate', LecionaDeleteUpdate.as_view(), name='leciona-delete-update'),
     path('leciona/create', LecionaCreate.as_view(), name='leciona-create'),
+
+    path('turma/<int:turma_id>/alunos/', views.alunos_da_turma, name='alunos_da_turma'),
+    #path('turma/<int:turma_id>/professores/', views.professores_da_turma, name='professores_da_turma'),
 ]
