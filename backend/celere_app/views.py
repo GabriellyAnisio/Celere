@@ -11,6 +11,22 @@ from rest_framework.decorators import api_view
 def index(request):
     return HttpResponse("Hello, world. You're at the index.")
 
+@api_view(['GET'])
+def alunos_da_turma(request, turma_id):
+    turma = Turma.objects.get(id=turma_id)
+    alunos = Aluno.objects.filter(id_turma=turma)
+    
+    # Criar um dicionário com os dados que deseja retornar
+    data = {
+        'turma_id': turma.id,
+        'turma_nome': turma.name,
+        'alunos': list(aluno.name for aluno in alunos)
+    }
+    
+    # Retornar uma resposta HTTP com o dicionário de dados
+    return Response(data)
+
+
 #Views de Profissional
 class ProfissionalCreate(generics.CreateAPIView):
     queryset = Profissional.objects.all()
