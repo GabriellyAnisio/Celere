@@ -10,19 +10,31 @@ urlpatterns = [
     path('profissional/<int:pk>', ProfissionalDetail.as_view(), name='profissional-detail'),
     path('profissional/', ProfissionalList.as_view(), name='profissional-list'),
     path('profissional/deleteupdate', ProfissionalDeleteUpdate.as_view(), name='profissional-delete-update'),
-    path('profissional/create', ProfissionalCreate.as_view(), name='profissional-create'),
+    #path('profissional/create', views.create_profissional, name='profissional-create'),
 
     #URLs de Professor
     path('professor/<int:pk>', ProfessorDetail.as_view(), name='professor-detail'),
     path('professor/', ProfessorList.as_view(), name='professor-list'),
     path('professor/deleteupdate', ProfessorDeleteUpdate.as_view(), name='professor-delete-update'),
-    path('professor/create', ProfessorCreate.as_view(), name='professor-create'),
+
+    # add.
+    path('professor/create', views.create_professor, name='professor-create'),
+
+    # add.
+    path('professor_detail/<int:pk>', views.ProfessorDetailView, name='professor-detail-complete'),
+    path('professor_detail_list/', views.ProfessorDetailViewList, name='professor-detail-list-complete'),
 
     #URLs de Gestor
     path('gestor/<int:pk>', GestorDetail.as_view(), name='gestor-detail'),
     path('gestor/', GestorList.as_view(), name='gestor-list'),
     path('gestor/deleteupdate', GestorDeleteUpdate.as_view(), name='gestor-delete-update'),
-    path('gestor/create', GestorCreate.as_view(), name='gestor-create'),
+
+    # add.
+    path('gestor/create', views.create_gestor, name='gestor-create'),
+
+    # add.
+    path('gestor_detail/<int:pk>', views.GestorDetailView, name='gestor-detail-complete'),
+    path('gestor_detail_list/', views.GestorDetailViewList, name='gestor-detail-list-complete'),
 
     #URLs de Nota
     path('nota/<int:pk>', NotaDetail.as_view(), name='nota-detail'),
@@ -41,6 +53,10 @@ urlpatterns = [
     path('turma/', TurmaList.as_view(), name='turma-list'),
     path('turma/deleteupdate',TurmaDeleteUpdate.as_view(), name='turma-delete-update'),
     path('turma/create', TurmaCreate.as_view(), name='turma-create'),
+
+    # add. 
+    path('turma_detail/<int:pk>', views.TurmaDetailView, name='turma-detail-complete'),
+    path('turma_detail_list/', views.TurmaDetailViewList, name='turma-detail-list-complete'),
 
     #URLs de SerieEscolar
     path('serie_escolar/<int:pk>', SerieEscolarDetail.as_view(), name='serie-escolar-detail'),
@@ -65,6 +81,10 @@ urlpatterns = [
     path('aluno/', AlunoList.as_view(), name='aluno-list'),
     path('aluno/deleteupdate', AlunoDeleteUpdate.as_view(), name='aluno-delete-update'),
     path('aluno/create', AlunoCreate.as_view(), name='aluno-create'),
+
+    # add.
+    path('aluno_detail/<int:registration_number>', views.AlunoDetailView, name='aluno-detail-complete'),
+    path('aluno_detail_list/', views.AlunoDetailViewList, name='aluno-detail-list-complete'),
 
     #URLs de Bilhete
     path('bilhete/<int:pk>', BilheteDetail.as_view(), name='bilhete-detail'),
