@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from rest_framework import generics
+from rest_framework import generics, viewsets, status
 from .models import *
 from .serializers import *
 from django.http import HttpResponse
@@ -16,15 +16,16 @@ def alunos_da_turma(request, turma_id):
     turma = Turma.objects.get(id=turma_id)
     alunos = Aluno.objects.filter(id_turma=turma)
     
-    # Criar um dicionário com os dados que deseja retornar
-    data = {
-        'turma_id': turma.id,
-        'turma_nome': turma.name,
-        'alunos': list(aluno.name for aluno in alunos)
-    }
+    alunos_data = []
+    for aluno in alunos:
+        aluno_data = {
+            'registration_number': aluno.registration_number,
+            'name': aluno.name,
+            'birth_date': aluno.birth_date,
+        }
+        alunos_data.append(aluno_data)
     
-    # Retornar uma resposta HTTP com o dicionário de dados
-    return Response(data)
+    return Response(alunos_data)
 
 
 #Views de Profissional
