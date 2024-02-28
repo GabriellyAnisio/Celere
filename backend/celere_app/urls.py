@@ -51,7 +51,7 @@ urlpatterns = [
     #URLs de Turma
     path('turma/<int:pk>', TurmaDetail.as_view(), name='turma-detail'),
     path('turma/', TurmaList.as_view(), name='turma-list'),
-    path('turma/deleteupdate',TurmaDeleteUpdate.as_view(), name='turma-delete-update'),
+    path('turma/deleteupdate/<int:pk>',TurmaDeleteUpdate.as_view(), name='turma-delete-update'),
     path('turma/create', TurmaCreate.as_view(), name='turma-create'),
 
     # add. 
@@ -107,7 +107,7 @@ urlpatterns = [
     #URLs de Comunicado
     path('comunicado/<int:pk>', ComunicadoDetail.as_view(), name='comunicado-detail'),
     path('comunicado/', ComunicadoList.as_view(), name='comunicado-list'),
-    path('comunicado/deleteupdate', ComunicadoDeleteUpdate.as_view(), name='comunicado-delete-update'),
+    path('comunicado/deleteupdate/<int:pk>', ComunicadoDeleteUpdate.as_view(), name='comunicado-delete-update'),
     path('comunicado/create', ComunicadoCreate.as_view(), name='comunicado-create'),
 
     #URLs de Disciplina
