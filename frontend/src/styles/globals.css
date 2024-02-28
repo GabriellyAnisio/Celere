@@ -33,6 +33,9 @@ body {
   display: none;
 }
 
+.scroll-content::-webkit-scrollbar {
+  display: none;
+}
 
 .hide::-webkit-scrollbar {
   display: none;

@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Baloo_2, Poppins } from 'next/font/google'
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
+import { useRouter } from 'next/router'
 
 const baloo = Baloo_2({ subsets: ['latin'], weight: ['500'] })
 const balooNegrito = Baloo_2({ subsets: ['latin'], weight: ['800'] })
@@ -8,34 +10,92 @@ const poppins = Poppins({ subsets: ['latin'], weight: ['400'] })
 
 export default function registerClass() {
 
-    {/* DROPDOWN */ }
-    const [dropdown, setDropdown] = useState(false);
-    const DropdownAction = () => {
-        const dropTest = !dropdown;
+    const [name, setName] = useState("")
+    const [cpf, setCpf] = useState("")
+    const [data, setData] = useState("")
+    const [rg, setRg] = useState("")
+    const [email, setEmail] = useState("")
+    const [senha, setSenha] = useState("")
+    const [telefone, setTelefone] = useState("")
 
-        if (dropTest) {
-            document.getElementById("dropdown").classList.remove("hidden");
-        } else {
-            document.getElementById("dropdown").classList.add("hidden");
+    const router = useRouter()
+
+    const createProfessional = async() =>{
+
+        if(selectedValue == "professor"){
+            const res = await fetch(`http://127.0.0.1:8000/professor/create`, { 
+                method: "post",
+                cache: 'no-store', 
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name:name,
+                    email: email,
+                    password: senha,
+                    birth_date: "1980-05-12",
+                    tel: telefone,
+                    rg: rg,
+                    cpf: cpf
+                }) 
+            })
+        
+            if(!res.ok){
+              return console.log("Erro ma criação")
+            }
+
+
+            router.push("/team")
+
+            return ""
         }
 
-        setDropdown(!dropdown);
 
+        const res = await fetch(`http://127.0.0.1:8000/gestor/create`, { 
+                method: "post",
+                cache: 'no-store', 
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name:name,
+                    email: email,
+                    password: senha,
+                    birth_date: "1980-05-12",
+                    tel: telefone,
+                    rg: rg,
+                    cpf: cpf
+                }) 
+            })
+        
+            if(!res.ok){
+              return console.log("Erro ma criação")
+            }
+
+
+            router.push("/team")
+       
+    
+      }
+
+    const cleanText = () => {
+        setName("")
+        setCpf("")
+        setRg("")
+        setEmail("")
+        setSenha("")
+        setTelefone("")
     }
 
-    const [dropdown2, setDropdown2] = useState(false);
-    const DropdownAction2 = () => {
-        const dropTest = !dropdown2;
+    const [selectedKeys, setSelectedKeys] = useState(new Set(["Função >"]));
 
-        if (dropTest) {
-            document.getElementById("dropdown2").classList.remove("hidden");
-        } else {
-            document.getElementById("dropdown2").classList.add("hidden");
-        }
+    const selectedValue = useMemo(
+        () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
+        [selectedKeys]
+    );
 
-        setDropdown2(!dropdown2);
-
-    }
 
     return (
         <div style={{display:"grid", gridTemplateColumns:"40% 50%"} }>
@@ -62,21 +122,40 @@ export default function registerClass() {
                     </div>
 
                     <div className="bg-gray  p-2 w-[428px] h-[40px] flex flex-row mt-3" style={{ borderRadius: 30 }}>
-
-                        <input className="bg-gray justify-start  w-[428px] p-3 outline-none" type="search" placeholder="Nome completo" >
-
-                        </input>
+                        <input className="bg-gray justify-start  w-[428px] p-3 outline-none" type="search" placeholder="Nome completo" onChange={e => setName(e.target.value)} value={name}/>
                     </div>
                 </div>
 
 
-                <div className="flex" style={{ gap: 32}}>
+                <div className="flex mt-12" style={{ gap: 32}}>
                 {/* DROPDOWN FUNÇÃO */}
-                <div className="flex flex-col ">
+                    <Dropdown className="bg-indigo">
+                        <DropdownTrigger>
+                            <Button 
+                                variant="bordered" 
+                                className="capitalize bg-indigo"
+                            >
+                                {selectedValue}
+                            </Button>
+                        </DropdownTrigger>
+                        <DropdownMenu 
+                            aria-label="Single selection example"
+                            variant="solid"
+                            disallowEmptySelection
+                            selectionMode="single"
+                            selectedKeys={selectedKeys}
+                            onSelectionChange={setSelectedKeys}
+                            className="bg-indigo"
+                        >
+                            <DropdownItem key="professor">Professor</DropdownItem>
+                            <DropdownItem key="gestor">Gestor</DropdownItem>
+                        </DropdownMenu>
+                    </Dropdown>
+                {/* <div className="flex flex-col ">
                     <div className={`${poppins.className} mt-4`} style={{ height: 23, color: '#020318', fontSize: 20, fontWeight: '300' }}></div>
 
                     <div className="">
-                        <div className="flex outline-none justify-start flex mt-3 items-center bg-indigo p-2 w-[225px] h-[40px] cursor-pointer" style={{ borderRadius: 100, gap: 115 }}
+                        <div className="flex outline-none justify-start mt-3 items-center bg-indigo p-2 w-[225px] h-[40px] cursor-pointer" style={{ borderRadius: 100, gap: 115 }}
                             onClick={() => DropdownAction()}>
                             Função
                             <div className=" text-black">
@@ -102,7 +181,7 @@ export default function registerClass() {
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 </div>
 
             </div>
@@ -117,10 +196,7 @@ export default function registerClass() {
                     </div>
 
                     <div className="bg-gray  p-2 w-[308px] h-[40px] flex flex-row mt-3" style={{ borderRadius: 30 }}>
-
-                        <input className="bg-gray justify-start  w-[428px] p-3 outline-none" type="search" placeholder="XXX.XXX.XXX-XX" >
-
-                        </input>
+                        <input className="bg-gray justify-start  w-[428px] p-3 outline-none" type="search" placeholder="XXX.XXX.XXX-XX" onChange={e => setCpf(e.target.value)} value={cpf} />
                     </div>
                 </div>
 
@@ -149,9 +225,7 @@ export default function registerClass() {
 
                     <div className="bg-gray  p-2 w-[308px] h-[40px] flex flex-row mt-3" style={{ borderRadius: 30 }}>
 
-                        <input className="bg-gray justify-start  w-[428px] p-3 outline-none" type="search" placeholder="X.XXX.XXX" >
-
-                        </input>
+                        <input className="bg-gray justify-start  w-[428px] p-3 outline-none" type="search" placeholder="X.XXX.XXX" onChange={e => setRg(e.target.value)} value={rg}/>
                     </div>
                 </div>
 
@@ -163,9 +237,7 @@ export default function registerClass() {
 
                     <div className="bg-gray  p-2 w-[308px] h-[40px] flex flex-row mt-3" style={{ borderRadius: 30 }}>
 
-                        <input className="bg-gray justify-start  w-[428px] p-3 outline-none" type="search" placeholder="(XX) XXXXX-XXXX" >
-
-                        </input>
+                        <input className="bg-gray justify-start  w-[428px] p-3 outline-none" type="search" placeholder="(XX) XXXXX-XXXX" onChange={e => setTelefone(e.target.value)} value={telefone} />
                     </div>
                 </div>                                                                
                 </div>
@@ -179,9 +251,7 @@ export default function registerClass() {
 
                     <div className="bg-gray  p-2 w-[308px] h-[40px] flex flex-row mt-3" style={{ borderRadius: 30 }}>
 
-                        <input className="bg-gray justify-start  w-[428px] p-3 outline-none" type="search" placeholder="...@gmail.com" >
-
-                        </input>
+                        <input className="bg-gray justify-start  w-[428px] p-3 outline-none" type="search" placeholder="...@gmail.com" onChange={e => setEmail(e.target.value)} value={email}/>
                    </div>
                 </div>
 
@@ -193,9 +263,7 @@ export default function registerClass() {
 
                         <div className="bg-gray  p-2 w-[308px] h-[40px] flex flex-row mt-3" style={{ borderRadius: 30 }}>
 
-                            <input className="bg-gray justify-start  w-[428px] p-3 outline-none" type="search" placeholder="*********" >
-
-                            </input>
+                            <input className="bg-gray justify-start  w-[428px] p-3 outline-none" type="password" placeholder="*********" onChange={e => setSenha(e.target.value)} value={senha} />
                        </div>
                     </div>
                  </div>
@@ -203,14 +271,14 @@ export default function registerClass() {
             <div className="flex flex-row mt-6" style={{gap:24}}>
 
                     {/* BOTÃO DE LIMPAR */}
-                    <button className={` w-[276px] h-[37px] bg-box text-black ${baloo.className} hover:bg-black hover:text-box`} style={{ padding: 10, borderRadius: 40, justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
+                    <button className={` w-[276px] h-[37px] bg-box text-black ${baloo.className} hover:bg-black hover:text-box`} style={{ padding: 10, borderRadius: 40, justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }} onClick={cleanText}>
                         <div style={{ textAlign: 'center', fontSize: 20, fontWeight: '500' }}>
                             Limpar
                         </div>
                     </button>
 
                     {/* BOTÃO DE FINALIZAR */}
-                    <button className={`ml-4 w-[276px] h-[37px] bg-indigo text-black ${baloo.className} hover:bg-black hover:text-box`} style={{ padding: 10, borderRadius: 40, justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }}>
+                    <button className={`ml-4 w-[276px] h-[37px] bg-indigo text-black ${baloo.className} hover:bg-black hover:text-box`} style={{ padding: 10, borderRadius: 40, justifyContent: 'center', alignItems: 'center', display: 'inline-flex' }} onClick={createProfessional}>
                         <div style={{ textAlign: 'center', fontSize: 20, fontWeight: '500' }}>
                             Finalizar
                         </div>
@@ -220,7 +288,7 @@ export default function registerClass() {
                     
         </div>
 
-            <div className="flex flex-col">
+          {/*   <div className="flex flex-col ">
                 <div className={`${baloo.className}`} style={{marginTop:135, marginLeft:70, width: 188, height: 23, fontSize: 20 }}>
                     Escolha um ícone
                     <div className="flex flex-row" style={{ gap: 12 }}>
@@ -239,7 +307,7 @@ export default function registerClass() {
                 <Image src={"/icons/alunos.svg"} width={296} height={360} />
                 </div>
                
-            </div>
+            </div> */}
     </div>
     )
 }
