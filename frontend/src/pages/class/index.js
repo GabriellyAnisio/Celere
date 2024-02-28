@@ -1,10 +1,34 @@
 import Image from "next/image";
 import { Baloo_2 } from 'next/font/google'
+import ClassButton from "@/components/class/button";
+import Link from "next/link";
 
 const baloo = Baloo_2({subsets:['latin'], weight: ['600']})
 const balooNegrito = Baloo_2({subsets:['latin'], weight: ['800']})
 
-export default function classesList() {
+export const getServerSideProps = async (ctx) => {
+    
+    const resTurmas = await fetch(`http://127.0.0.1:8000/turma_detail_list`, { 
+        method: "GET",
+        cache: 'no-store', 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+    })
+    const turmas = await resTurmas.json()
+  
+  
+    return {
+      props: {
+        turmas: turmas,
+      }
+    }
+  }
+
+export default function classesList({turmas}) {
+
+
 
     return (
         <div className={`flex flex-col mt-4 ml-8 ${baloo.className}`} style={{ justifyContent: 'flex-start', gap: 12, display: 'inline-flex' }}>
@@ -59,86 +83,28 @@ export default function classesList() {
                 </div>
 
                 {/* BOTÃO DE ADICIONAR TURMA */}
-                <button className={`m-4 w-[184px] h-[60px] bg-light-blue hover:bg-light-blue-active`} style={{ fontSize: 20, fontWeight: '500', width: '184', height: '60', borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 6, display: 'inline-flex' }}>
-                    <Image src={"/icons/plus.svg"} width={24} height={24} />
-                    Turma
-                </button>
+                <Link href="/class/register">
+                    <button className={`m-4 w-[184px] h-[60px] bg-light-blue hover:bg-light-blue-active`} style={{ fontSize: 20, fontWeight: '500', width: '184', height: '60', borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 6, display: 'inline-flex' }}>
+                        <Image src={"/icons/plus.svg"} width={24} height={24} />
+                        Turma
+                    </button>
+                </Link>
 
             </div>
 
             {/* LISTA DE TURMAS */}
-            <div className="w-[888px] h-[328px] bg-box" style={{padding: 20, borderRadius: 30, flexDirection: 'column', justifyContent: 'center', gap: 10 }}>
-                <div className="scrollable-content" style={{ overflow: 'scroll',width: 836, height: 288, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 16, display: 'flex' }}>
-                    <div style={{alignItems: 'center', gap: 52, display: 'inline-flex' }}>
-                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
-                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
-                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
-                        </button>
-                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
-                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
-                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
-                        </button>
-                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
-                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
-                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
-                        </button>
-                    </div>
-                    <div style={{alignItems: 'center', gap: 52, display: 'inline-flex' }}>
-                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
-                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
-                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
-                        </button>
-                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
-                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
-                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
-                        </button>
-                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
-                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
-                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
-                        </button>
-                    </div>
-                    <div style={{alignItems: 'center', gap: 52, display: 'inline-flex' }}>
-                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
-                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
-                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
-                        </button>
-                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
-                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
-                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
-                        </button>
-                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
-                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
-                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
-                        </button>
-                    </div>
-                    <div style={{alignItems: 'center', gap: 52, display: 'inline-flex' }}>
-                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
-                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
-                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
-                        </button>
-                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
-                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
-                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
-                        </button>
-                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
-                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
-                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
-                        </button>
-                    </div>
-                    <div style={{alignItems: 'center', gap: 52, display: 'inline-flex' }}>
-                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
-                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
-                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
-                        </button>
-                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
-                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
-                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
-                        </button>
-                        <button className="w-[244px] h-[64px] bg-light-green text-black-300 hover:bg-green-active" style={{paddingLeft: 20, paddingRight: 20, borderRadius: 20, flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', display: 'inline-flex' }}>
-                            <div className={`mt-1 ${balooNegrito.className}`} style={{ fontSize: 24, fontWeight: '800'}}>9° ano A</div>
-                            <div style={{ fontSize: 16, fontWeight: '300' }}>Fundamental II</div>
-                        </button>
-                    </div>
+            <div className="w-[888px] h-[328px] bg-box " style={{padding: 20, borderRadius: 30, flexDirection: 'column', justifyContent: 'center', gap: 10 }}>
+                <div className="flex-wrap scroll-content" style={{  overflowY: 'scroll',width: 836, height: 288, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 16, display: 'flex' }}>
+
+                    {turmas.map(turma =>{
+                        return (
+                            <ClassButton title={turma.school_grade} subtitle={"Ensino Médio"} id={turma.id}/>
+                        )
+                    })}
+
+                       
+
+
                 </div>
             </div>
         </div>

@@ -21,7 +21,7 @@ export default function Navbar() {
                         width={35}
                         height={35}
                     />
-                    <div className='m-2 text-xs font-bold'>Fulano</div>
+                    <div className='m-2 text-xs font-bold'>Amanda</div>
                 </div>
             </Link>
 

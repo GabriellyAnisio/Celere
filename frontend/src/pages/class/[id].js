@@ -1,11 +1,35 @@
 import Image from "next/image";
 import { Baloo_2, Poppins } from 'next/font/google'
+import Link from "next/link";
+import StudentButton from "@/components/class/studentButton";
 
 const baloo = Baloo_2({ subsets: ['latin'], weight: ['500'] })
 const balooNegrito = Baloo_2({ subsets: ['latin'], weight: ['800'] })
 const poppins = Poppins({ subsets: ['latin'], weight: ['400'] })
 
-export default function classesList() {
+export const getServerSideProps = async (ctx) => {
+    const { id } = ctx.query;
+    
+    const resTurma = await fetch(`http://127.0.0.1:8000/turma_detail/${id}`, { 
+        method: "GET",
+        cache: 'no-store', 
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+    })
+
+    const turmas = await resTurma.json()
+  
+  
+    return {
+      props: {
+        turmas: turmas,
+      }
+    }
+  }
+
+export default function classesList({turmas}) {
 
     return (
         <div className={`flex flex-col ml-8 ${baloo.className}`} style={{ justifyContent: 'flex-start', display: 'inline-flex' }}>
@@ -136,10 +160,12 @@ export default function classesList() {
                     </div>
 
                     <div className="flex flex-row">
-                        <button className={`mt-3 w-[184px] h-[60px] bg-light-blue hover:bg-light-blue-active`} style={{ fontSize: 20, fontWeight: '500', width: '184', height: '55', borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap:6, display: 'inline-flex' }}>
-                            <Image src={"/icons/plus.svg"} width={24} height={24} />
-                            Discente
-                        </button>
+                        <Link href={"/student/register"}>
+                            <button className={`mt-3 w-[184px] h-[60px] bg-light-blue hover:bg-light-blue-active`} style={{ fontSize: 20, fontWeight: '500', width: '184', height: '55', borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap:6, display: 'inline-flex' }}>
+                                <Image src={"/icons/plus.svg"} width={24} height={24} />
+                                Discente
+                            </button>
+                        </Link>
 
                         {/* ALFABETO */}
                         <div className={`ml-12 mt-3 text-black ${poppins.className}`} style={{ flexDirection: 'column', gap: 5, display: 'inline-flex', fontSize: 16, fontWeight: '400' }}>
@@ -203,102 +229,21 @@ export default function classesList() {
 
                     </div>
 
-                    <div className={` mt-3 w-[644px] h-[392px] bg-box ${poppins.className} text-black`} style={{ padding: 12, background: '#F1F3FB', borderRadius: 30, flexDirection: 'column', justifyContent: 'center', gap: 10 }}>
-                        <div className="scrollable-content ml-1" style={{ overflowY: 'scroll', height: 368, justifyContent: 'flex-start', alignItems: 'flex-start', gap: 24, display: 'inline-flex' }}>
-                            <div style={{ flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 12, display: 'inline-flex' }}>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                            </div>
-                            <div style={{ flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 12, display: 'inline-flex' }}>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                                <button className="w-[293px] h-[48px] bg-indigo hover:bg-indigo-active" style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', gap: 18, display: 'inline-flex' }}>
-                                    <Image src={"/icons/at-sign.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                    <div style={{ width: 166, height: 20, fontSize: 16, fontWeight: '400'}}>Lorem ipsum</div>
-                                    <Image src={"/icons/chevron-right.svg"} width={24} height={24} style={{position: 'relative'}} />
-                                </button>
-                            </div>
+                    <div className={` mt-3 w-[644px] h-[392px] bg-box ${poppins.className} text-black`} style={{ padding: 12, background: '#F1F3FB', borderRadius: 30, flexDirection: 'column', gap: 10 }}>
+                        <div className="scroll-content ml-1 h-[365px] flex flex-wrap " style={{ overflowY: 'scroll', gap: 15}}>
+                            {turmas.alunos.map(aluno =>{
+                                return (
+                                    <StudentButton name={aluno.name} id={aluno.registration_number} />
+                                )
+                            })}
+                            <StudentButton name={"Aluno"} id={12123} />
+                            <StudentButton name={"Aluno"} id={12123} />
+                            <StudentButton name={"Aluno"} id={12123} />
+                            <StudentButton name={"Aluno"} id={12123} />
+                            <StudentButton name={"Aluno"} id={12123} />
+                            <StudentButton name={"Aluno"} id={12123} />
+                            <StudentButton name={"Aluno"} id={12123} />
+                            
                         </div>
                     </div>
                 </div>

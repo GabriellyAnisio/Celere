@@ -33,7 +33,7 @@ export default function Sidebar() {
             
         </Link>
 
-        <Link href={'/'}>
+        <Link href={'/seeNews'}>
             <div className='flex flex-col items-center hover:opacity-60'>
                 <Image
                 src={'/icons/tag.svg'} 
